@@ -11,7 +11,7 @@
 | :--- | :--- |
 | Slug | `telefonica-churn` |
 | Typ | DA |
-| Stack | Polars · Plotly · Jupyter |
+| Stack | pandas · SQLAlchemy (SQLite) · statsmodels · matplotlib/seaborn · wgnd-toolkit · Jupyter |
 
 ## Kontext-Einstieg
 
