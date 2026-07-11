@@ -1,19 +1,19 @@
 # ROADMAP.md – Telefonica Churn
 
 ## Phase 1 – Setup & Daten
-- [ ] Projektstruktur aufsetzen
-- [ ] Datenquellen identifizieren
-- [ ] Rohdaten laden und prüfen
+- [x] Projektstruktur aufsetzen
+- [x] Datenquellen identifizieren
+- [x] Rohdaten laden und prüfen
 
 ## Phase 2 – EDA
-- [ ] Explorative Datenanalyse
-- [ ] Erste Visualisierungen
-- [ ] Hypothesen formulieren
+- [x] Explorative Datenanalyse
+- [x] Erste Visualisierungen
+- [x] Hypothesen formulieren
 
 ## Phase 3 – Modell / Analyse
-- [ ] Feature Engineering
-- [ ] Modell / Analyse umsetzen
-- [ ] Ergebnisse bewerten
+- [x] Feature Engineering (Entscheidung: keine neuen Features nötig, siehe 00_introduction Scope)
+- [x] Modell / Analyse umsetzen
+- [x] Ergebnisse bewerten
 
 ## Phase 4 – Abschluss
 - [ ] Report / Dashboard
