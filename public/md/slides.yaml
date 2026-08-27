@@ -1,0 +1,543 @@
+# Slide-Registry — Single Source of Truth für Overview/StoryView/TechView
+#
+# Schema wie zh-tram-flow / us-used-vehicle-resales: chapters -> slides -> content-items.
+# View-Rollen (Kay 27.08.2026): Overview = kürzeste Business-Sicht, StoryView = vollständigste
+# Erzählung, TechView = rein technische Themen (Datenbereinigung, Methodik, Grenzen) ohne
+# Business-Empfehlungen.
+#
+# Content-Typen ohne Renderer (nicht verwenden): findings, note.
+
+chapters:
+
+  # ---------------------------------------------------------------------
+  - id: einstieg
+    nav_label: Einstieg
+    slides:
+      - id: einstieg-title-overview
+        views: [overview]
+        role: title
+        layout: L6
+        title: "Telefonica Churn"
+        subtitle:
+          - "Wen soll eine Telefongesellschaft in Florida ansprechen"
+          - "Zielgruppen für zwei Kundenbindungs-Kampagnen"
+        content:
+          - type: figures
+            items:
+              - {value: "3.333", label: "Kunden im bereinigten Datensatz", sentiment: neutral}
+              - {value: "14,49 %", label: "Basis-Abwanderungsrate", sentiment: warning}
+              - {value: "954", label: "Kunden mit mindestens einem Risikosignal", sentiment: positive}
+
+      - id: einstieg-title-storyview
+        views: [storyview]
+        role: title
+        layout: L6
+        title: "Telefonica Churn"
+        subtitle:
+          - "Abwanderungsanalyse für einen Markteintritt in Florida"
+          - "Datenprüfung · drei Indikatoren · Kampagnen-Zielgruppen"
+        content:
+          - type: figures
+            items:
+              - {value: "3.333", label: "Kunden (aus 3.349 Rohzeilen)", sentiment: neutral}
+              - {value: "14,49 %", label: "Basis-Abwanderungsrate", sentiment: warning}
+              - {value: "3", label: "unabhängig geprüfte Indikatoren", sentiment: neutral}
+              - {value: "954", label: "Kunden für gezielte Ansprache", sentiment: positive}
+
+      - id: einstieg-title-techview
+        views: [techview]
+        role: title
+        layout: L6
+        title: "Telefonica Churn"
+        subtitle:
+          - "Datenqualität, Indikatortypen und Schwellenwert-Herleitung"
+          - "SQLite-Join · Bereinigung · statsmodels Logit"
+        content:
+          - type: figures
+            items:
+              - {value: "37", label: "Zeilen mit negativem Anrufzähler", sentiment: negative}
+              - {value: "350,74", label: "Minuten, 50-Prozent-Schwelle", sentiment: neutral}
+              - {value: "0,052", label: "Pseudo-R² der Regression", sentiment: warning}
+              - {value: "kein Split", label: "bewusst ohne Train/Test-Split", sentiment: neutral}
+
+      - id: einstieg-agenda-overview
+        views: [overview]
+        layout: L6
+        kicker: "Agenda"
+        title: "Inhaltsübersicht"
+        subtitle: "Ergebnis und Handlungsempfehlungen, ohne Methodik"
+        content:
+          - type: agenda
+            items:
+              - "Problem"
+              - "Indikatoren"
+              - "Ergebnis"
+              - "Empfehlungen"
+
+      - id: einstieg-agenda-storyview
+        views: [storyview]
+        layout: L6
+        kicker: "Agenda"
+        title: "Inhaltsübersicht"
+        subtitle: "Der komplette Weg von den Rohdaten zu den Kampagnen-Zielgruppen"
+        content:
+          - type: agenda
+            items:
+              - "Problem"
+              - "Daten und Qualität"
+              - "Exploration"
+              - "Analyse"
+              - "Ergebnis"
+              - "Empfehlungen"
+              - "Grenzen"
+
+      - id: einstieg-agenda-techview
+        views: [techview]
+        layout: L6
+        kicker: "Agenda"
+        title: "Inhaltsübersicht"
+        subtitle: "Datenaufbereitung, Indikatortypen und Methodik"
+        content:
+          - type: agenda
+            items:
+              - "Daten und Qualität"
+              - "Indikatortypen"
+              - "Methodik"
+              - "Grenzen"
+
+  # ---------------------------------------------------------------------
+  - id: problem
+    nav_label: Problem
+    slides:
+      - id: problem-szenario
+        views: [overview, storyview]
+        layout: L6
+        kicker: "Problem"
+        title: "Markteintritt mit subventioniertem ersten Jahr"
+        subtitle: "Teleconfia testet den US-Markt mit Florida als Pilotregion"
+        content:
+          - type: statement
+            layout: lead_copy
+            text: "Nicht alle Neukunden sind geblieben"
+            copy: "Das erste Jahr war vergünstigt. Zwei Kampagnen sollen die Abwanderung bremsen, eine Plakatkampagne in den Stadtteilen mit der höchsten Abwanderung und eine persönliche Ansprache der Kunden, die vermutlich kündigen werden."
+          - type: figures
+            items:
+              - {value: "14,49 %", label: "Abwanderung über alle Kunden", sentiment: warning}
+              - {value: "3.333", label: "Kunden im Datensatz", sentiment: neutral}
+              - {value: "12", label: "Stadtteile in Florida", sentiment: neutral}
+
+      - id: problem-auftrag
+        views: [storyview]
+        layout: L6
+        kicker: "Problem"
+        title: "Die Leitfrage"
+        subtitle: "Zielgruppen bestimmen, nicht eine Quote senken"
+        content:
+          - type: statement
+            text: "Welche Spalten zeigen tatsächlich ein Abwanderungsrisiko an, und wo setzt man die Schwelle für eine Kontaktaufnahme. Der Auftrag nennt keine Zielquote, er fragt nach Adressaten."
+          - type: sections
+            layout: columns
+            numbered: true
+            items:
+              - label: "Plakatkampagne"
+                points:
+                  - "Zielgebiete sind Stadtteile, nicht einzelne Kunden."
+                  - "Gesucht ist eine Rangfolge der zwölf Distrikte."
+              - label: "Persönliche Ansprache"
+                points:
+                  - "Zielgruppe sind einzelne Kunden mit erkennbarem Risiko."
+                  - "Gesucht sind Merkmale und eine Kontaktschwelle."
+
+  # ---------------------------------------------------------------------
+  - id: daten
+    nav_label: Daten
+    slides:
+      - id: daten-quelle
+        views: [storyview, techview]
+        layout: wide
+        kicker: "Daten"
+        title: "Zwei Tabellen, ein Join"
+        subtitle: "SQLite-Datenbank aus dem StackFuel-Abschlussprojekt"
+        content:
+          - type: comparison_table
+            columns: ["Schritt", "Umfang", "Anmerkung"]
+            rows:
+              - cells: ["churn_data", "3.349 Zeilen × 17 Spalten", "eine Zeile je Kunde, Zielspalte churn"]
+                highlight: false
+              - cells: ["cities", "12 Zeilen", "Stadtteile, 1:1 über area_code"]
+                highlight: false
+              - cells: ["Join", "3.349 × 18", "local_area_code = cities.area_code"]
+                highlight: false
+              - cells: ["Bereinigt", "3.333 × 18", "16 vollständig leere Zeilen entfernt"]
+                highlight: true
+          - type: statement
+            text: "Querschnittsaufnahme ohne Datumsspalte. Es gibt keinen Zeitverlauf, jede Aussage bezieht sich auf einen Stand."
+
+      - id: daten-qualitaet
+        views: [storyview, techview]
+        layout: L6
+        kicker: "Daten"
+        title: "Ein Zähler, der nicht negativ sein kann"
+        subtitle: "Was die Prüfung der Rohdaten zutage gefördert hat"
+        content:
+          - type: box_grid
+            items:
+              - text: "<strong>37 Zeilen mit negativem Anrufzähler</strong><br>customer_service_calls enthielt die Werte -1 und -2. Ein Zähler für getätigte Anrufe kann nicht negativ werden. Auf 0 gesetzt."
+                highlight: true
+              - text: "<strong>16 vollständig leere Zeilen</strong><br>Ohne jeden Wert, ersatzlos entfernt."
+                highlight: false
+              - text: "<strong>4 Spalten mit einzelnen Lücken</strong><br>number_vmail_messages, total_day_calls, total_eve_calls, total_night_calls. Aufgefüllt mit 0 oder Median, je nach fachlicher Bedeutung."
+                highlight: false
+          - type: statement
+            text: "Der negative Anrufzähler war in der ursprünglichen Musterlösung nicht aufgefallen. Er verschiebt genau den Indikator, auf dem später eine der drei Empfehlungen beruht."
+
+  # ---------------------------------------------------------------------
+  - id: exploration
+    nav_label: Exploration
+    slides:
+      - id: exploration-basis
+        views: [storyview]
+        layout: L6
+        kicker: "Exploration"
+        title: "Die Ausgangslage"
+        subtitle: "Was der Datensatz hergibt und was nicht"
+        content:
+          - type: figures
+            items:
+              - {value: "14,49 %", label: "Abwanderungsrate als Vergleichsmaßstab", sentiment: warning}
+              - {value: "1 Zeile", label: "je Kunde, keine Verlaufsdaten", sentiment: neutral}
+              - {value: "0", label: "Datumsspalten im Datensatz", sentiment: neutral}
+          - type: statement
+            text: "Ohne Zeitachse lässt sich kein Verlauf modellieren. Die Frage nach Zielgruppen ist damit eine Frage nach Merkmalen, die im Bestand sichtbar sind, nicht nach einem Vorhersagemodell."
+
+  # ---------------------------------------------------------------------
+  - id: analyse
+    nav_label: Analyse
+    slides:
+      - id: analyse-uebersicht
+        views: [overview]
+        layout: wide
+        kicker: "Indikatoren"
+        title: "Drei Signale, unabhängig geprüft"
+        subtitle: "Jedes für sich gegen den gesamten Datensatz gerechnet"
+        content:
+          - type: comparison_table
+            columns: ["Indikator", "Abwanderung", "Betroffene Kunden", "Eignung"]
+            rows:
+              - cells: ["Internationaler Tarif", "42,4 % gegen 11,5 %", "323", "stark"]
+                highlight: true
+              - cells: ["Ab 4 Service-Anrufen", "45,8 % gegen rund 10 %", "696", "stark"]
+                highlight: true
+              - cells: ["Tagesminuten über 350,74", "50 % rechnerisch", "4", "nur ergänzend"]
+                highlight: false
+          - type: statement
+            text: "Zwei Indikatoren tragen eine Kampagne, der dritte ist statistisch sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen."
+
+      - id: analyse-staedte
+        views: [storyview]
+        layout: image_left
+        kicker: "Analyse"
+        title: "Vier Stadtteile tragen die Mehrheit"
+        subtitle: "Zielgebiete für die Plakatkampagne"
+        content:
+          - type: chart_refs
+            items:
+              - source: "city_churn_ranking.png"
+                label: "Stadtteile nach Abwanderung"
+                caption: "Stadtteile nach absoluter Zahl der Abwanderungen"
+          - type: statement
+            text: "Jacksonville mit 29,82 Prozent, Orlando1 mit 23,67, Cape Coral mit 21,78 und Orlando2 mit 19,08 kommen zusammen auf 60,9 Prozent aller Abwanderungen. Vier von zwölf Stadtteilen reichen damit für die Plakatkampagne."
+
+      - id: analyse-international
+        views: [storyview]
+        layout: image_left
+        kicker: "Analyse"
+        title: "Der internationale Tarif"
+        subtitle: "Das stärkste kategoriale Signal"
+        content:
+          - type: chart_refs
+            items:
+              - source: "international_plan_churn.png"
+                label: "Abwanderung nach Tarif"
+                caption: "Abwanderungsrate mit und ohne internationalen Tarif"
+          - type: statement
+            text: "Kunden mit internationalem Tarif wandern zu 42,4 Prozent ab, ohne den Tarif zu 11,5 Prozent. Das ist knapp das Vierfache und betrifft 323 Kunden, eine Gruppe, die sich einzeln ansprechen lässt."
+
+      - id: analyse-servicecalls
+        views: [storyview]
+        layout: image_left
+        kicker: "Analyse"
+        title: "Der vierte Anruf"
+        subtitle: "Ein klarer Knick statt eines gleichmäßigen Anstiegs"
+        content:
+          - type: chart_refs
+            items:
+              - source: "customer_service_calls_churn.png"
+                label: "Abwanderung nach Service-Anrufen"
+                caption: "Abwanderungsrate nach Anzahl der Service-Anrufe"
+          - type: statement
+            text: "Bis zum dritten Anruf liegt die Abwanderung bei rund 10 Prozent, beim vierten springt sie auf 45,8 Prozent. Die Kontaktschwelle wurde deshalb auf drei Anrufe gesetzt, um vor dem Knick zu liegen. Das betrifft 696 Kunden."
+
+      - id: analyse-logreg
+        views: [storyview]
+        layout: image_left
+        kicker: "Analyse"
+        title: "Eine Schwelle statt einer Faustregel"
+        subtitle: "Logistische Regression auf den Tagesminuten"
+        content:
+          - type: chart_refs
+            items:
+              - source: "logit_total_day_minutes.png"
+                label: "Regressionskurve mit Schwelle"
+                caption: "Regressionskurve mit der 50-Prozent-Schwelle"
+          - type: statement
+            text: "Für die stetige Größe wurde die Schwelle nicht geschätzt, sondern gerechnet. Bei 350,74 Tagesminuten liegt die Abwanderungswahrscheinlichkeit bei 50 Prozent. Sauber hergeleitet, aber nur vier Kunden liegen darüber."
+
+      - id: analyse-typen
+        views: [techview]
+        layout: wide
+        kicker: "Indikatortypen"
+        title: "Drei Datentypen, drei Auswertungswege"
+        subtitle: "Warum nicht jede Spalte gleich behandelt wird"
+        content:
+          - type: comparison_table
+            columns: ["Typ", "Spalte", "Verfahren", "Ergebnis"]
+            rows:
+              - cells: ["kategorial", "international_plan", "Gruppenvergleich der Raten", "42,4 % gegen 11,5 %"]
+                highlight: false
+              - cells: ["ganzzahlig", "customer_service_calls", "Rate je Ausprägung, Knick suchen", "Sprung beim 4. Anruf"]
+                highlight: false
+              - cells: ["stetig", "total_day_minutes", "logistische Regression, 50-Prozent-Punkt", "350,74 Minuten"]
+                highlight: true
+          - type: statement
+            text: "Bei einer stetigen Größe gibt es keine natürlichen Gruppen. Eine Schwelle per Augenmaß wäre willkürlich, deshalb kommt hier die Regression zum Einsatz und nicht bei den anderen beiden."
+
+  # ---------------------------------------------------------------------
+  - id: methodik
+    nav_label: Methodik
+    slides:
+      - id: methodik-logreg
+        views: [techview]
+        layout: image_left
+        kicker: "Methodik"
+        title: "Die Regression im Detail"
+        subtitle: "statsmodels Logit auf total_day_minutes"
+        content:
+          - type: chart_refs
+            items:
+              - source: "logit_total_day_minutes.png"
+                label: "Regressionskurve mit Schwelle"
+                caption: "Regressionskurve mit der 50-Prozent-Schwelle"
+          - type: statement
+            text: "Ein einzelner Prädiktor, gerechnet auf dem vollständigen Datensatz. Der 50-Prozent-Punkt liegt bei 350,74 Minuten. Das Pseudo-R² von 0,052 sagt zugleich, dass die Tagesminuten allein den Großteil der Abwanderung nicht erklären."
+
+      - id: methodik-kein-split
+        views: [techview]
+        layout: L6
+        kicker: "Methodik"
+        title: "Bewusst ohne Train/Test-Split"
+        subtitle: "Schwellenwert bestimmen statt generalisieren"
+        content:
+          - type: contrasts
+            items:
+              - topic: "Ziel der Regression"
+                assumption: "Ein Modell, das Abwanderung bei unbekannten Kunden vorhersagt und dafür auf einem Testset bewertet wird."
+                finding: "Eine belegbare Schwelle für die Kontaktliste, gerechnet auf dem vorhandenen Bestand."
+          - type: statement
+            text: "Ein Split würde die Datenbasis für diese Herleitung nur verkleinern, ohne die Aussage zu verbessern. Entsprechend gibt es keine Testmetrik. Die Prüfung liegt in der Datenqualität und in der Frage, wie viele Kunden ein Indikator tatsächlich trifft."
+
+  # ---------------------------------------------------------------------
+  - id: findings
+    nav_label: Ergebnis
+    slides:
+      - id: findings-kombiniert
+        views: [overview, storyview]
+        layout: L6
+        kicker: "Ergebnis"
+        title: "Knapp ein Drittel der Kunden ist adressierbar"
+        subtitle: "Abdeckung der drei Indikatoren zusammen"
+        content:
+          - type: figures
+            items:
+              - {value: "954", label: "von 3.333 Kunden mit mindestens einem Signal", sentiment: positive}
+              - {value: "28,6 %", label: "Anteil am Bestand", sentiment: positive}
+              - {value: "60,9 %", label: "der Abwanderung in vier Stadtteilen", sentiment: positive}
+          - type: statement
+            text: "Beide Kampagnen haben damit eine konkrete Zielgruppe, ohne dass ein Vorhersagemodell nötig war. Die Sorgfalt steckt in der Datenprüfung, nicht in der Modellkomplexität."
+
+  # ---------------------------------------------------------------------
+  - id: empfehlungen
+    nav_label: Empfehlungen
+    slides:
+      - id: empfehlungen-alle
+        views: [overview, storyview]
+        layout: wide
+        kicker: "Empfehlungen"
+        title: "Vier Maßnahmen"
+        subtitle: "Direkt aus den drei Indikatoren abgeleitet"
+        content:
+          - type: recommendations
+            items:
+              - category: "1"
+                title: "Plakatkampagne in den vier stärksten Stadtteilen"
+                points:
+                  - "Jacksonville, Orlando1, Cape Coral und Orlando2."
+                  - "Zusammen 60,9 Prozent der gesamten Abwanderung."
+              - category: "2"
+                title: "Persönliche Ansprache bei internationalem Tarif"
+                points:
+                  - "323 Kunden bei 42,4 Prozent Abwanderung."
+                  - "Bessere Konditionen für Auslandsgespräche anbieten, bevor sie kündigen."
+              - category: "3"
+                title: "Frühwarnung ab dem dritten Service-Anruf"
+                points:
+                  - "696 Kunden betroffen."
+                  - "Beim vierten Anruf springt die Rate auf 45,8 Prozent, der Kontakt beim dritten schafft Vorlauf."
+              - category: "4"
+                title: "Tagesminuten nur als zusätzliches Kriterium"
+                points:
+                  - "Die Schwelle von 350,74 Minuten ist sauber hergeleitet."
+                  - "Sie trifft allein aber nur vier Kunden, deshalb mit den beiden anderen kombinieren."
+
+  # ---------------------------------------------------------------------
+  - id: grenzen
+    nav_label: Grenzen
+    slides:
+      - id: grenzen-alle
+        views: [storyview, techview]
+        layout: L6
+        kicker: "Grenzen"
+        title: "Was diese Analyse nicht kann"
+        subtitle: "Aussagegrenzen, offen benannt"
+        content:
+          - type: box_grid
+            items:
+              - text: "<strong>Keine Generalisierung</strong><br>Ohne Train/Test-Split und ohne Vorhersagemodell gilt jede Aussage für diesen Bestand, nicht für künftige Kunden."
+                highlight: false
+              - text: "<strong>Die Tagesminuten-Schwelle steht allein zu dünn</strong><br>Statistisch sauber bei 350,74 Minuten, betrifft aber nur vier Kunden. Als alleiniges Kriterium unbrauchbar."
+                highlight: true
+              - text: "<strong>Keine Zeitachse</strong><br>Der Datensatz ist eine Querschnittsaufnahme. Wann eine Kündigung fällt und was ihr vorausging, lässt sich nicht rekonstruieren."
+                highlight: false
+              - text: "<strong>Wirkung ungemessen</strong><br>Ob die Kampagnen wirken, zeigt erst eine Nachmessung. Der Datensatz enthält keinen Vorher-Nachher-Vergleich."
+                highlight: false
+
+  # ---------------------------------------------------------------------
+  - id: ende
+    nav_label: Ende
+    slides:
+      - id: ende-overview
+        views: [overview]
+        role: closing
+        layout: L6
+        title: "Zwei Kampagnen, konkrete Adressaten"
+        subtitle: "954 Kunden und vier Stadtteile, ohne Vorhersagemodell"
+        content:
+          - type: statement
+            text: "Eine gut geprüfte Exploration mit drei einfachen Schwellen beantwortet die Zielgruppen-Frage vollständig."
+
+      - id: ende-storyview
+        views: [storyview]
+        role: closing
+        layout: L6
+        title: "Sorgfalt statt Modellkomplexität"
+        subtitle: "Was dieses Projekt zeigt"
+        content:
+          - type: statement
+            text: "Drei unabhängig geprüfte Indikatoren reichen aus, um beide Kampagnen zu adressieren. Der entscheidende Beitrag war nicht ein Modell, sondern die Prüfung der Datenbasis und die ehrliche Einordnung, welcher Indikator trägt und welcher nicht."
+
+      - id: ende-techview
+        views: [techview]
+        role: closing
+        layout: L6
+        title: "Methodisch schlicht, dafür überprüfbar"
+        subtitle: "Reproduzierbar über fünf nummerierte Notebooks"
+        content:
+          - type: statement
+            text: "Jeder Bereinigungsschritt, jede Schwelle und jede Aussagegrenze ist im Notebook nachvollziehbar dokumentiert. Wo eine Zahl nicht trägt, steht das dabei."
+
+# ===========================================================================
+meta:
+  overview:
+    author: "Kay Wiegand"
+    github: "kaywiegand/telefonica-churn"
+    presentation_title: "Ergebnis & Empfehlungen"
+    audience: "HR · Business · Stakeholder"
+    duration_minutes: 5
+  storyview:
+    author: "Kay Wiegand"
+    github: "kaywiegand/telefonica-churn"
+    presentation_title: "Der komplette Projektverlauf"
+    audience: "Data Peers · Portfolio"
+    duration_minutes: 12
+  techview:
+    author: "Kay Wiegand"
+    github: "kaywiegand/telefonica-churn"
+    presentation_title: "Technischer Deep Dive"
+    audience: "Data Scientists · Tech Leads · Interviewer"
+    duration_minutes: 8
+
+# ===========================================================================
+hub:
+  headline_kpis_from: einstieg-title-overview
+  tagline: "Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen"
+  subtitle: "Abwanderungsanalyse für einen Markteintritt in Florida"
+  footer_tagline: "Telekommunikation · Abwanderung · Zielgruppenbestimmung"
+  about:
+    - label: "Motivation"
+      text: "Teleconfia testet den US-Markt mit Florida als Pilotregion. Neukunden bekamen das erste Jahr vergünstigt, nicht alle sind geblieben. Zwei Kampagnen sollen dagegenhalten und brauchen konkrete Adressaten."
+    - label: "Kernfrage"
+      text: "Welche Spalten zeigen tatsächlich ein Abwanderungsrisiko, und wo setzt man die Schwelle für eine Kontaktaufnahme? <strong>Drei Indikatoren reichen</strong> — internationaler Tarif (42,4 % gegen 11,5 %), vier oder mehr Service-Anrufe (45,8 % gegen rund 10 %) und eine per Regression bestimmte Schwelle bei 350,74 Tagesminuten."
+    - label: "Datenqualität"
+      text: "Die Prüfung der Rohdaten fand 37 Zeilen mit negativem Anrufzähler, ein unmöglicher Wert für einen Zähler und in der ursprünglichen Musterlösung unentdeckt. Er verschiebt genau den Indikator, auf dem eine der Empfehlungen beruht."
+    - label: "Ergebnis & Grenzen"
+      text: "954 von 3.333 Kunden lösen mindestens ein Risikosignal aus, vier von zwölf Stadtteilen tragen 60,9 % der Abwanderung. Bewusst ohne Vorhersagemodell und ohne Train/Test-Split — die Schwelle bei 350,74 Minuten ist sauber hergeleitet, trifft allein aber nur vier Kunden und taugt nur als Zusatzkriterium."
+  quick_links:
+    - {href: "../notebooks/", label: "Notebooks"}
+  view_order: [overview, techview, storyview]
+  view_cards:
+    overview:
+      kicker: "Overview"
+      label: "Basic Information"
+      description: "Ergebnis und Handlungsempfehlungen für Stakeholder. Die kürzeste Fassung, ohne Methodik."
+      badge: "HR · Business"
+      badge_class: blue
+    techview:
+      kicker: "Tech View"
+      label: "Technical Insights"
+      description: "Datenbereinigung, Indikatortypen, Schwellenwert-Herleitung und Aussagegrenzen. Ohne Business-Empfehlungen."
+      badge: "Data Science"
+      badge_class: dark
+    storyview:
+      kicker: "Story View"
+      label: "Detailed Description"
+      description: "Der gesamte Weg von den Rohdaten über die drei Indikatoren bis zu den Kampagnen-Zielgruppen. Portfolio-Vollansicht."
+      badge: "Portfolio"
+      badge_class: purple
+
+view_composition:
+  overview:
+    - einstieg
+    - problem
+    - analyse
+    - findings
+    - empfehlungen
+    - ende
+
+  storyview:
+    - einstieg
+    - problem
+    - daten
+    - exploration
+    - analyse
+    - findings
+    - empfehlungen
+    - grenzen
+    - ende
+
+  techview:
+    - einstieg
+    - daten
+    - analyse
+    - methodik
+    - grenzen
+    - ende

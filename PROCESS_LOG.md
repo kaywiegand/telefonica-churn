@@ -36,3 +36,29 @@
 - Nächster Schritt: `/project-case check`.
 
 ---
+
+## 2026-08-27 — Portfolio-Aufbereitung
+
+`/project-case slides` + Build. `public/md/slides.yaml` neu angelegt (25 Slide-Einträge, 6 davon in
+mehr als einer View), daraus `overview.html`, `storyview.html`, `techview.html`, `index.html`, die
+View-MDs und `slides-matrix.md` generiert. Alter Stand liegt in `public/archive/v1/`.
+
+**View-Rollen (Kay-Vorgabe 27.08.2026):** Overview ist die kürzeste Fassung (7 Slides, Ergebnis und
+Empfehlungen, keine Methodik), StoryView die vollständigste (15), TechView rein technisch (9,
+Datenbereinigung, Indikatortypen, Regression, Grenzen, ohne Business-Empfehlungen).
+
+**Zwei Fallstricke beim Schreiben der slides.yaml:**
+1. `chart_refs.source` erwartet **nur den Dateinamen** — `_img_src()` in `generate_html_from_json.py`
+   setzt `img/` selbst davor. Mit `source: "img/datei.png"` entsteht `img/img/datei.png`.
+2. `comparison_table` braucht `columns:` (nicht `headers:`) und Zeilen als `- cells: [...]`;
+   `box_grid`-Items kennen nur `text` und `highlight` (kein `title`/`sentiment`);
+   `recommendations` braucht `points:` als Liste; `contrasts` braucht `assumption`/`finding`.
+
+**PDF-Export der Views (Reveal `?print-pdf` + Chrome headless):** Das Ausblenden der
+Bildschirm-Navigation muss als **normales** Stylesheet injiziert werden, **nicht** in `@media print`.
+Mit Media-Query fällt Chrome bei den größeren Views auf US-Letter-Hochformat zurück und zerlegt
+Slides über mehrere Seiten; ohne sie kommen alle drei Views korrekt im Querformat mit genau einer
+Seite je Slide (7 / 15 / 9).
+
+**Offen:** kein Git-Remote. Das GitHub-Repo `kaywiegand/telefonica-churn` existiert, ist aber leer
+(0 KB). Ohne Push kein GitHub Pages, damit ist der Case noch nicht verlinkbar.

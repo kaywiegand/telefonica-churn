@@ -16,6 +16,6 @@
 - [x] Ergebnisse bewerten
 
 ## Phase 4 – Abschluss
-- [ ] Report / Dashboard
+- [x] Report / Dashboard (Views + Hub aus slides.yaml generiert, 27.08.2026)
 - [ ] README finalisieren
 - [ ] Repo aufräumen und archivieren

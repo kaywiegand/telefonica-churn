@@ -1,0 +1,274 @@
+{
+  "meta": {
+    "closing_links": [
+      {
+        "href": "../notebooks/",
+        "label": "Notebooks"
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav_label": "Einstieg",
+      "nav_tick_label": "Einstieg",
+      "slides": [
+        {
+          "role": "title",
+          "layout": "L6",
+          "title": "Telefonica Churn",
+          "subtitle": [
+            "Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen",
+            "Abwanderungsanalyse für einen Markteintritt in Florida"
+          ],
+          "content": [
+            {
+              "type": "figures",
+              "items": [
+                {
+                  "value": "3.333",
+                  "label": "Kunden im bereinigten Datensatz",
+                  "sentiment": "neutral"
+                },
+                {
+                  "value": "14,49 %",
+                  "label": "Basis-Abwanderungsrate",
+                  "sentiment": "warning"
+                },
+                {
+                  "value": "954",
+                  "label": "Kunden mit mindestens einem Risikosignal",
+                  "sentiment": "positive"
+                }
+              ]
+            },
+            {
+              "type": "view_teaser",
+              "label": "Basic Information",
+              "description": "Ergebnis und Handlungsempfehlungen für Stakeholder. Die kürzeste Fassung, ohne Methodik."
+            }
+          ]
+        },
+        {
+          "layout": "L6",
+          "kicker": "Agenda",
+          "title": "Inhaltsübersicht",
+          "subtitle": "Ergebnis und Handlungsempfehlungen, ohne Methodik",
+          "content": [
+            {
+              "type": "agenda",
+              "items": [
+                "Problem",
+                "Indikatoren",
+                "Ergebnis",
+                "Empfehlungen"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Problem",
+      "nav_tick_label": "Problem",
+      "slides": [
+        {
+          "layout": "L6",
+          "kicker": "Problem",
+          "title": "Markteintritt mit subventioniertem ersten Jahr",
+          "subtitle": "Teleconfia testet den US-Markt mit Florida als Pilotregion",
+          "content": [
+            {
+              "type": "statement",
+              "layout": "lead_copy",
+              "text": "Nicht alle Neukunden sind geblieben",
+              "copy": "Das erste Jahr war vergünstigt. Zwei Kampagnen sollen die Abwanderung bremsen, eine Plakatkampagne in den Stadtteilen mit der höchsten Abwanderung und eine persönliche Ansprache der Kunden, die vermutlich kündigen werden."
+            },
+            {
+              "type": "figures",
+              "items": [
+                {
+                  "value": "14,49 %",
+                  "label": "Abwanderung über alle Kunden",
+                  "sentiment": "warning"
+                },
+                {
+                  "value": "3.333",
+                  "label": "Kunden im Datensatz",
+                  "sentiment": "neutral"
+                },
+                {
+                  "value": "12",
+                  "label": "Stadtteile in Florida",
+                  "sentiment": "neutral"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Analyse",
+      "nav_tick_label": "Analyse",
+      "slides": [
+        {
+          "layout": "wide",
+          "kicker": "Indikatoren",
+          "title": "Drei Signale, unabhängig geprüft",
+          "subtitle": "Jedes für sich gegen den gesamten Datensatz gerechnet",
+          "content": [
+            {
+              "type": "comparison_table",
+              "columns": [
+                "Indikator",
+                "Abwanderung",
+                "Betroffene Kunden",
+                "Eignung"
+              ],
+              "rows": [
+                {
+                  "cells": [
+                    "Internationaler Tarif",
+                    "42,4 % gegen 11,5 %",
+                    "323",
+                    "stark"
+                  ],
+                  "highlight": true
+                },
+                {
+                  "cells": [
+                    "Ab 4 Service-Anrufen",
+                    "45,8 % gegen rund 10 %",
+                    "696",
+                    "stark"
+                  ],
+                  "highlight": true
+                },
+                {
+                  "cells": [
+                    "Tagesminuten über 350,74",
+                    "50 % rechnerisch",
+                    "4",
+                    "nur ergänzend"
+                  ],
+                  "highlight": false
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "text": "Zwei Indikatoren tragen eine Kampagne, der dritte ist statistisch sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Ergebnis",
+      "nav_tick_label": "Ergebnis",
+      "slides": [
+        {
+          "layout": "L6",
+          "kicker": "Ergebnis",
+          "title": "Knapp ein Drittel der Kunden ist adressierbar",
+          "subtitle": "Abdeckung der drei Indikatoren zusammen",
+          "content": [
+            {
+              "type": "figures",
+              "items": [
+                {
+                  "value": "954",
+                  "label": "von 3.333 Kunden mit mindestens einem Signal",
+                  "sentiment": "positive"
+                },
+                {
+                  "value": "28,6 %",
+                  "label": "Anteil am Bestand",
+                  "sentiment": "positive"
+                },
+                {
+                  "value": "60,9 %",
+                  "label": "der Abwanderung in vier Stadtteilen",
+                  "sentiment": "positive"
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "text": "Beide Kampagnen haben damit eine konkrete Zielgruppe, ohne dass ein Vorhersagemodell nötig war. Die Sorgfalt steckt in der Datenprüfung, nicht in der Modellkomplexität."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Empfehlungen",
+      "nav_tick_label": "Empfehlungen",
+      "slides": [
+        {
+          "layout": "wide",
+          "kicker": "Empfehlungen",
+          "title": "Vier Maßnahmen",
+          "subtitle": "Direkt aus den drei Indikatoren abgeleitet",
+          "content": [
+            {
+              "type": "recommendations",
+              "items": [
+                {
+                  "category": "1",
+                  "title": "Plakatkampagne in den vier stärksten Stadtteilen",
+                  "points": [
+                    "Jacksonville, Orlando1, Cape Coral und Orlando2.",
+                    "Zusammen 60,9 Prozent der gesamten Abwanderung."
+                  ]
+                },
+                {
+                  "category": "2",
+                  "title": "Persönliche Ansprache bei internationalem Tarif",
+                  "points": [
+                    "323 Kunden bei 42,4 Prozent Abwanderung.",
+                    "Bessere Konditionen für Auslandsgespräche anbieten, bevor sie kündigen."
+                  ]
+                },
+                {
+                  "category": "3",
+                  "title": "Frühwarnung ab dem dritten Service-Anruf",
+                  "points": [
+                    "696 Kunden betroffen.",
+                    "Beim vierten Anruf springt die Rate auf 45,8 Prozent, der Kontakt beim dritten schafft Vorlauf."
+                  ]
+                },
+                {
+                  "category": "4",
+                  "title": "Tagesminuten nur als zusätzliches Kriterium",
+                  "points": [
+                    "Die Schwelle von 350,74 Minuten ist sauber hergeleitet.",
+                    "Sie trifft allein aber nur vier Kunden, deshalb mit den beiden anderen kombinieren."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Ende",
+      "nav_tick_label": "Ende",
+      "slides": [
+        {
+          "role": "closing",
+          "layout": "L6",
+          "title": "Zwei Kampagnen, konkrete Adressaten",
+          "subtitle": "954 Kunden und vier Stadtteile, ohne Vorhersagemodell",
+          "content": [
+            {
+              "type": "statement",
+              "text": "Eine gut geprüfte Exploration mit drei einfachen Schwellen beantwortet die Zielgruppen-Frage vollständig."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "closing_links": [
+      {
+        "href": "../notebooks/",
+        "label": "Notebooks"
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "nav_label": "Einstieg",
+      "nav_tick_label": "Einstieg",
+      "slides": [
+        {
+          "role": "title",
+          "layout": "L6",
+          "title": "Telefonica Churn",
+          "subtitle": [
+            "Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen",
+            "Abwanderungsanalyse für einen Markteintritt in Florida"
+          ],
+          "content": [
+            {
+              "type": "figures",
+              "items": [
+                {
+                  "value": "37",
+                  "label": "Zeilen mit negativem Anrufzähler",
+                  "sentiment": "negative"
+                },
+                {
+                  "value": "350,74",
+                  "label": "Minuten, 50-Prozent-Schwelle",
+                  "sentiment": "neutral"
+                },
+                {
+                  "value": "0,052",
+                  "label": "Pseudo-R² der Regression",
+                  "sentiment": "warning"
+                },
+                {
+                  "value": "kein Split",
+                  "label": "bewusst ohne Train/Test-Split",
+                  "sentiment": "neutral"
+                }
+              ]
+            },
+            {
+              "type": "view_teaser",
+              "label": "Technical Insights",
+              "description": "Datenbereinigung, Indikatortypen, Schwellenwert-Herleitung und Aussagegrenzen. Ohne Business-Empfehlungen."
+            }
+          ]
+        },
+        {
+          "layout": "L6",
+          "kicker": "Agenda",
+          "title": "Inhaltsübersicht",
+          "subtitle": "Datenaufbereitung, Indikatortypen und Methodik",
+          "content": [
+            {
+              "type": "agenda",
+              "items": [
+                "Daten und Qualität",
+                "Indikatortypen",
+                "Methodik",
+                "Grenzen"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Daten",
+      "nav_tick_label": "Daten",
+      "slides": [
+        {
+          "layout": "wide",
+          "kicker": "Daten",
+          "title": "Zwei Tabellen, ein Join",
+          "subtitle": "SQLite-Datenbank aus dem StackFuel-Abschlussprojekt",
+          "content": [
+            {
+              "type": "comparison_table",
+              "columns": [
+                "Schritt",
+                "Umfang",
+                "Anmerkung"
+              ],
+              "rows": [
+                {
+                  "cells": [
+                    "churn_data",
+                    "3.349 Zeilen × 17 Spalten",
+                    "eine Zeile je Kunde, Zielspalte churn"
+                  ],
+                  "highlight": false
+                },
+                {
+                  "cells": [
+                    "cities",
+                    "12 Zeilen",
+                    "Stadtteile, 1:1 über area_code"
+                  ],
+                  "highlight": false
+                },
+                {
+                  "cells": [
+                    "Join",
+                    "3.349 × 18",
+                    "local_area_code = cities.area_code"
+                  ],
+                  "highlight": false
+                },
+                {
+                  "cells": [
+                    "Bereinigt",
+                    "3.333 × 18",
+                    "16 vollständig leere Zeilen entfernt"
+                  ],
+                  "highlight": true
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "text": "Querschnittsaufnahme ohne Datumsspalte. Es gibt keinen Zeitverlauf, jede Aussage bezieht sich auf einen Stand."
+            }
+          ]
+        },
+        {
+          "layout": "L6",
+          "kicker": "Daten",
+          "title": "Ein Zähler, der nicht negativ sein kann",
+          "subtitle": "Was die Prüfung der Rohdaten zutage gefördert hat",
+          "content": [
+            {
+              "type": "box_grid",
+              "items": [
+                {
+                  "text": "<strong>37 Zeilen mit negativem Anrufzähler</strong><br>customer_service_calls enthielt die Werte -1 und -2. Ein Zähler für getätigte Anrufe kann nicht negativ werden. Auf 0 gesetzt.",
+                  "highlight": true
+                },
+                {
+                  "text": "<strong>16 vollständig leere Zeilen</strong><br>Ohne jeden Wert, ersatzlos entfernt.",
+                  "highlight": false
+                },
+                {
+                  "text": "<strong>4 Spalten mit einzelnen Lücken</strong><br>number_vmail_messages, total_day_calls, total_eve_calls, total_night_calls. Aufgefüllt mit 0 oder Median, je nach fachlicher Bedeutung.",
+                  "highlight": false
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "text": "Der negative Anrufzähler war in der ursprünglichen Musterlösung nicht aufgefallen. Er verschiebt genau den Indikator, auf dem später eine der drei Empfehlungen beruht."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Analyse",
+      "nav_tick_label": "Analyse",
+      "slides": [
+        {
+          "layout": "wide",
+          "kicker": "Indikatortypen",
+          "title": "Drei Datentypen, drei Auswertungswege",
+          "subtitle": "Warum nicht jede Spalte gleich behandelt wird",
+          "content": [
+            {
+              "type": "comparison_table",
+              "columns": [
+                "Typ",
+                "Spalte",
+                "Verfahren",
+                "Ergebnis"
+              ],
+              "rows": [
+                {
+                  "cells": [
+                    "kategorial",
+                    "international_plan",
+                    "Gruppenvergleich der Raten",
+                    "42,4 % gegen 11,5 %"
+                  ],
+                  "highlight": false
+                },
+                {
+                  "cells": [
+                    "ganzzahlig",
+                    "customer_service_calls",
+                    "Rate je Ausprägung, Knick suchen",
+                    "Sprung beim 4. Anruf"
+                  ],
+                  "highlight": false
+                },
+                {
+                  "cells": [
+                    "stetig",
+                    "total_day_minutes",
+                    "logistische Regression, 50-Prozent-Punkt",
+                    "350,74 Minuten"
+                  ],
+                  "highlight": true
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "text": "Bei einer stetigen Größe gibt es keine natürlichen Gruppen. Eine Schwelle per Augenmaß wäre willkürlich, deshalb kommt hier die Regression zum Einsatz und nicht bei den anderen beiden."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Methodik",
+      "nav_tick_label": "Methodik",
+      "slides": [
+        {
+          "layout": "image_left",
+          "kicker": "Methodik",
+          "title": "Die Regression im Detail",
+          "subtitle": "statsmodels Logit auf total_day_minutes",
+          "content": [
+            {
+              "type": "chart_refs",
+              "items": [
+                {
+                  "source": "logit_total_day_minutes.png",
+                  "label": "Regressionskurve mit Schwelle",
+                  "caption": "Regressionskurve mit der 50-Prozent-Schwelle"
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "text": "Ein einzelner Prädiktor, gerechnet auf dem vollständigen Datensatz. Der 50-Prozent-Punkt liegt bei 350,74 Minuten. Das Pseudo-R² von 0,052 sagt zugleich, dass die Tagesminuten allein den Großteil der Abwanderung nicht erklären."
+            }
+          ]
+        },
+        {
+          "layout": "L6",
+          "kicker": "Methodik",
+          "title": "Bewusst ohne Train/Test-Split",
+          "subtitle": "Schwellenwert bestimmen statt generalisieren",
+          "content": [
+            {
+              "type": "contrasts",
+              "items": [
+                {
+                  "topic": "Ziel der Regression",
+                  "assumption": "Ein Modell, das Abwanderung bei unbekannten Kunden vorhersagt und dafür auf einem Testset bewertet wird.",
+                  "finding": "Eine belegbare Schwelle für die Kontaktliste, gerechnet auf dem vorhandenen Bestand."
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "text": "Ein Split würde die Datenbasis für diese Herleitung nur verkleinern, ohne die Aussage zu verbessern. Entsprechend gibt es keine Testmetrik. Die Prüfung liegt in der Datenqualität und in der Frage, wie viele Kunden ein Indikator tatsächlich trifft."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Grenzen",
+      "nav_tick_label": "Grenzen",
+      "slides": [
+        {
+          "layout": "L6",
+          "kicker": "Grenzen",
+          "title": "Was diese Analyse nicht kann",
+          "subtitle": "Aussagegrenzen, offen benannt",
+          "content": [
+            {
+              "type": "box_grid",
+              "items": [
+                {
+                  "text": "<strong>Keine Generalisierung</strong><br>Ohne Train/Test-Split und ohne Vorhersagemodell gilt jede Aussage für diesen Bestand, nicht für künftige Kunden.",
+                  "highlight": false
+                },
+                {
+                  "text": "<strong>Die Tagesminuten-Schwelle steht allein zu dünn</strong><br>Statistisch sauber bei 350,74 Minuten, betrifft aber nur vier Kunden. Als alleiniges Kriterium unbrauchbar.",
+                  "highlight": true
+                },
+                {
+                  "text": "<strong>Keine Zeitachse</strong><br>Der Datensatz ist eine Querschnittsaufnahme. Wann eine Kündigung fällt und was ihr vorausging, lässt sich nicht rekonstruieren.",
+                  "highlight": false
+                },
+                {
+                  "text": "<strong>Wirkung ungemessen</strong><br>Ob die Kampagnen wirken, zeigt erst eine Nachmessung. Der Datensatz enthält keinen Vorher-Nachher-Vergleich.",
+                  "highlight": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nav_label": "Ende",
+      "nav_tick_label": "Ende",
+      "slides": [
+        {
+          "role": "closing",
+          "layout": "L6",
+          "title": "Methodisch schlicht, dafür überprüfbar",
+          "subtitle": "Reproduzierbar über fünf nummerierte Notebooks",
+          "content": [
+            {
+              "type": "statement",
+              "text": "Jeder Bereinigungsschritt, jede Schwelle und jede Aussagegrenze ist im Notebook nachvollziehbar dokumentiert. Wo eine Zahl nicht trägt, steht das dabei."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
