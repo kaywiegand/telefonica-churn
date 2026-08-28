@@ -17,8 +17,8 @@
 
 # Telefonica Churn
 
-**Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen**
-**Abwanderungsanalyse für einen Markteintritt in Florida | StackFuel Capstone**
+**Abwanderungsanalyse für einen Markteintritt in Florida**
+**Data-Analysis-Projekt | StackFuel Capstone**
 
 * **37** — Zeilen mit negativem Anrufzähler
 * **350,74** — Minuten, 50-Prozent-Schwelle
@@ -66,7 +66,6 @@
 ## Die Regression im Detail
 *statsmodels Logit auf total_day_minutes*
 
-> Ein Prädiktor auf dem vollen Datensatz. 50-Prozent-Punkt bei 350,74 Minuten. Pseudo-R² 0,052 heißt zugleich, dass die Tagesminuten den Großteil der Abwanderung nicht erklären.
 
 ## Bewusst ohne Train/Test-Split
 *Schwellenwert bestimmen statt generalisieren*

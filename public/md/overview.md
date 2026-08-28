@@ -17,8 +17,8 @@
 
 # Telefonica Churn
 
-**Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen**
-**Abwanderungsanalyse für einen Markteintritt in Florida | StackFuel Capstone**
+**Abwanderungsanalyse für einen Markteintritt in Florida**
+**Data-Analysis-Projekt | StackFuel Capstone**
 
 * **3.333** — Kunden im bereinigten Datensatz
 * **14,49 %** — Basis-Abwanderungsrate

@@ -16,12 +16,12 @@ Automatisch generiert aus `public/md/slides.yaml` via `scripts/print_slide_matri
 | `daten-qualitaet` | Daten | box_grid + Statement | ✅ | ✅ |  |
 | `exploration-basis` | Exploration | KPIs + Statement | ✅ |  |  |
 | `analyse-uebersicht` | Analyse | Vergleichstabelle + Statement |  |  | ✅ |
-| `analyse-staedte` | Analyse | Chart + Statement | ✅ |  |  |
-| `analyse-international` | Analyse | Chart + Statement | ✅ |  |  |
-| `analyse-servicecalls` | Analyse | Chart + Statement | ✅ |  |  |
-| `analyse-logreg` | Analyse | Chart + Statement | ✅ |  |  |
+| `analyse-staedte` | Analyse | Chart | ✅ |  |  |
+| `analyse-international` | Analyse | Chart | ✅ |  |  |
+| `analyse-servicecalls` | Analyse | Chart | ✅ |  |  |
+| `analyse-logreg` | Analyse | Chart | ✅ |  |  |
 | `analyse-typen` | Analyse | Vergleichstabelle + Statement |  | ✅ |  |
-| `methodik-logreg` | Methodik | Chart + Statement |  | ✅ |  |
+| `methodik-logreg` | Methodik | Chart |  | ✅ |  |
 | `methodik-kein-split` | Methodik | Annahme/Befund + Statement |  | ✅ |  |
 | `findings-kombiniert` | Ergebnis | KPIs + Statement | ✅ |  | ✅ |
 | `empfehlungen-alle` | Empfehlungen | Empfehlungen | ✅ |  | ✅ |

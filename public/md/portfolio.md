@@ -15,7 +15,7 @@ type:       DA
 stage:      Phase 3 complete — analysis + insights done, portfolio prep in progress
 target:     churn (0/1) — used for threshold/indicator analysis, not predicted via ML model
 stack:      Python · pandas · SQLAlchemy · statsmodels · Matplotlib/Seaborn · Jupyter
-period:     cross-sectional snapshot — no date column
+period:     StackFuel Capstone
 rows:       3,333 (cleaned, from 3,349 raw)
 notebooks:  5
 findings:   6

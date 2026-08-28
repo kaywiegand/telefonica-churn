@@ -24,8 +24,8 @@
           "layout": "L6",
           "title": "Telefonica Churn",
           "subtitle": [
-            "Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen",
-            "Abwanderungsanalyse für einen Markteintritt in Florida | StackFuel Capstone"
+            "Abwanderungsanalyse für einen Markteintritt in Florida",
+            "Data-Analysis-Projekt | StackFuel Capstone"
           ],
           "content": [
             {
@@ -302,14 +302,9 @@
                 {
                   "source": "city_churn_ranking.png",
                   "label": "Stadtteile nach Abwanderung",
-                  "caption": "Stadtteile nach absoluter Zahl der Abwanderungen"
+                  "caption": "Vier von zwölf Stadtteilen tragen 60,9 Prozent aller Abwanderungen.<br><br>Jacksonville 29,82 %, Orlando1 23,67 %, Cape Coral 21,78 %, Orlando2 19,08 %. Das reicht als Zielgebiet für die Plakatkampagne."
                 }
               ]
-            },
-            {
-              "type": "statement",
-              "layout": "wide",
-              "text": "Jacksonville mit 29,82 Prozent, Orlando1 mit 23,67, Cape Coral mit 21,78 und Orlando2 mit 19,08 kommen zusammen auf 60,9 Prozent aller Abwanderungen. Vier von zwölf Stadtteilen reichen damit für die Plakatkampagne."
             }
           ]
         },
@@ -325,14 +320,9 @@
                 {
                   "source": "international_plan_churn.png",
                   "label": "Abwanderung nach Tarif",
-                  "caption": "Abwanderungsrate mit und ohne internationalen Tarif"
+                  "caption": "42,4 % gegen 11,5 %, knapp das Vierfache.<br><br>Betrifft 323 Kunden. Klein genug, um sie einzeln anzusprechen."
                 }
               ]
-            },
-            {
-              "type": "statement",
-              "layout": "wide",
-              "text": "Kunden mit internationalem Tarif wandern zu 42,4 Prozent ab, ohne den Tarif zu 11,5 Prozent. Das ist knapp das Vierfache und betrifft 323 Kunden, eine Gruppe, die sich einzeln ansprechen lässt."
             }
           ]
         },
@@ -348,14 +338,9 @@
                 {
                   "source": "customer_service_calls_churn.png",
                   "label": "Abwanderung nach Service-Anrufen",
-                  "caption": "Abwanderungsrate nach Anzahl der Service-Anrufe"
+                  "caption": "Bis zum dritten Anruf rund 10 %, beim vierten 45,8 %.<br><br>Kontaktschwelle deshalb bei drei Anrufen, vor dem Knick. Betrifft 696 Kunden."
                 }
               ]
-            },
-            {
-              "type": "statement",
-              "layout": "wide",
-              "text": "Bis zum dritten Anruf liegt die Abwanderung bei rund 10 Prozent, beim vierten springt sie auf 45,8 Prozent. Die Kontaktschwelle wurde deshalb auf drei Anrufe gesetzt, um vor dem Knick zu liegen. Das betrifft 696 Kunden."
             }
           ]
         },
@@ -371,14 +356,9 @@
                 {
                   "source": "logit_total_day_minutes.png",
                   "label": "Regressionskurve mit Schwelle",
-                  "caption": "Regressionskurve mit der 50-Prozent-Schwelle"
+                  "caption": "Die Schwelle ist gerechnet, nicht geschätzt.<br><br>Bei 350,74 Tagesminuten liegt die Abwanderungswahrscheinlichkeit bei 50 %. Sauber hergeleitet, aber nur vier Kunden liegen darüber."
                 }
               ]
-            },
-            {
-              "type": "statement",
-              "layout": "wide",
-              "text": "Für die stetige Größe wurde die Schwelle nicht geschätzt, sondern gerechnet. Bei 350,74 Tagesminuten liegt die Abwanderungswahrscheinlichkeit bei 50 Prozent. Sauber hergeleitet, aber nur vier Kunden liegen darüber."
             }
           ]
         }

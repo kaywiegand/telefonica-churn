@@ -857,8 +857,12 @@ body.nav-invert #progress-fill                    { background: #fff; }
    Boxen verschieden weit links anfingen (Subline wirkte "mittig" statt mit
    dem Titel linksbündig). Jetzt wie .title-slide: volle Breite, Text darin
    linksbündig (per .reveal h2/.reveal .subline). */
-/* Kay-Feedback 2026-07-21: weight 100 auf großer weißer Fläche wirkte zu hart — 300 statt 100. */
-.closing h2 { font-size: 3.29em; font-weight: 300; color: #fff; letter-spacing: -0.01em; line-height: 1.2; }
+/* Kay-Feedback 2026-07-21: weight 100 wirkte zu hart — 300 statt 100.
+   Kay-Feedback 2026-08-28 (überschreibt das): Die Kopfzone der Closing-Slide soll exakt
+   aussehen wie die der Title-Slide. Der Gewichtsunterschied fiel als Fehler auf, weil beide
+   Slides denselben dunklen Hintergrund und dieselbe Titel-/Subline-Struktur haben.
+   Deshalb zurück auf 100, identisch zu .title-slide h2. */
+.closing h2 { font-size: 3.29em; font-weight: 100; color: #fff; letter-spacing: -0.01em; line-height: 1.2; }
 .closing .subline { font-size: 0.94em; color: rgba(255,255,255,0.78); }
 .closing blockquote.statement { color: rgba(255,255,255,0.92); max-width: 720px; font-weight: 300; margin: 0.5em auto 0; }
 /* process_arrows (Dashboard-Teaser-Zeile) auf dunklem Closing-Hintergrund — ohne Override erbt
