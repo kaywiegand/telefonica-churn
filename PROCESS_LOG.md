@@ -54,11 +54,33 @@ Datenbereinigung, Indikatortypen, Regression, Grenzen, ohne Business-Empfehlunge
    `box_grid`-Items kennen nur `text` und `highlight` (kein `title`/`sentiment`);
    `recommendations` braucht `points:` als Liste; `contrasts` braucht `assumption`/`finding`.
 
-**PDF-Export der Views (Reveal `?print-pdf` + Chrome headless):** Das Ausblenden der
-Bildschirm-Navigation muss als **normales** Stylesheet injiziert werden, **nicht** in `@media print`.
-Mit Media-Query fällt Chrome bei den größeren Views auf US-Letter-Hochformat zurück und zerlegt
-Slides über mehrere Seiten; ohne sie kommen alle drei Views korrekt im Querformat mit genau einer
-Seite je Slide (7 / 15 / 9).
+**PDF-Export der Views (Reveal `?print-pdf` + Chrome headless):** Die Bildschirm-Navigation als
+normales Stylesheet ausblenden. Der gelegentliche Hochformat-Fallback (612×792 statt 821×578, Slides
+über mehrere Seiten zerlegt) ist ein **Timing-Rennen**, keine CSS-Frage — dieselbe Datei rendert mal
+richtig, mal falsch. Lösung: MediaBox prüfen und wiederholen, siehe
+`wgnd-skills/project-case/scripts/render_views_pdf.sh`.
 
 **Offen:** kein Git-Remote. Das GitHub-Repo `kaywiegand/telefonica-churn` existiert, ist aber leer
 (0 KB). Ohne Push kein GitHub Pages, damit ist der Case noch nicht verlinkbar.
+
+
+## 2026-08-28 — Layout-Korrekturen nach Kay-Review
+
+Vier Fehler in der ersten `slides.yaml`, alle im Schema, nicht im Inhalt:
+
+1. **`meta:` statt `view_meta:`** — `generate_json_from_slides.py` liest `view_meta`. Mein Block wurde
+   still ignoriert, die Views hatten keine Metadaten.
+2. **`layout: image_left` gehört auf das `chart_refs`-Item**, nicht auf die Slide. Auf Slide-Ebene
+   greift es nicht, dann rendert der Chart über die volle Breite und das Statement darunter statt
+   daneben. Richtig ist Chart links, Text rechts.
+3. **Closing-Slide:** `role: closing` **plus `layout: split`** ergibt die Kopfzone wie auf der
+   Titelslide und darunter zwei Spalten, Text links, Links rechts. Statt drei getrennter Ende-Slides
+   jetzt **eine gemeinsame** für alle Views (`views: [overview, storyview, techview]`) — kein Drift.
+4. **`statement` braucht `layout: wide`** für volle Breite, sonst bleibt es auf 860px gekappt.
+
+Dazu drei fehlende Abstands-Paare im globalen `slides.css` ergänzt (2em-Konvention):
+`.text-lead-copy + .metric-row`, `.box-grid + blockquote.statement`,
+`.sections-block + blockquote.statement`.
+
+Alle Statements verdichtet. TechView-Titel: die unsinnige KPI „kein Split" durch „5 nummerierte
+Notebooks" ersetzt.

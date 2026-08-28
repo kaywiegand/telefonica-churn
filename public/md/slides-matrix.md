@@ -26,8 +26,6 @@ Automatisch generiert aus `public/md/slides.yaml` via `scripts/print_slide_matri
 | `findings-kombiniert` | Ergebnis | KPIs + Statement | ✅ |  | ✅ |
 | `empfehlungen-alle` | Empfehlungen | Empfehlungen | ✅ |  | ✅ |
 | `grenzen-alle` | Grenzen | box_grid | ✅ | ✅ |  |
-| `ende-overview` | Ende | Statement |  |  | ✅ |
-| `ende-storyview` | Ende | Statement | ✅ |  |  |
-| `ende-techview` | Ende | Statement |  | ✅ |  |
+| `ende-closing` | Ende | Statement | ✅ | ✅ | ✅ |
 
-**25 Slide-Einträge total · 6 davon in mehr als 1 View wiederverwendet.**
+**23 Slide-Einträge total · 7 davon in mehr als 1 View wiederverwendet.**

@@ -680,6 +680,9 @@ body.nav-invert #progress-fill                    { background: #fff; }
 .reveal .sections-block + .cols,
 .reveal .arrows + .text-cols-head,
 .reveal .h-timeline + .text-cols-head,
+.reveal .text-lead-copy + .metric-row,
+.reveal .box-grid + blockquote.statement,
+.reveal .sections-block + blockquote.statement,
 .reveal .text-lead-copy + .sections-block { margin-top: 2em; }
 
 /* .metric-row direkt vor .combo (E5 Ring+Value) wirkt zu eng mit nur 2em, weil beide

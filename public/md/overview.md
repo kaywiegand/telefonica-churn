@@ -1,12 +1,12 @@
-# Project
+# Telefonica Churn
 
-**Projekt:** N/A
-**Beschreibung:** N/A
-**Autor:** N/A
-**Zielgruppe:** N/A
-**Dauer:** N/A Minuten
-**Zeitraum:** N/A
-**GitHub:** [N/A](https://github.com/)
+**Projekt:** Telefonica Churn
+**Beschreibung:** Ergebnis & Empfehlungen
+**Autor:** Kay Wiegand
+**Zielgruppe:** HR · Business · Stakeholder
+**Dauer:** 5 Minuten
+**Zeitraum:** StackFuel Capstone
+**GitHub:** [kaywiegand/telefonica-churn](https://github.com/kaywiegand/telefonica-churn)
 
 ---
 
@@ -18,7 +18,7 @@
 # Telefonica Churn
 
 **Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen**
-**Abwanderungsanalyse für einen Markteintritt in Florida**
+**Abwanderungsanalyse für einen Markteintritt in Florida | StackFuel Capstone**
 
 * **3.333** — Kunden im bereinigten Datensatz
 * **14,49 %** — Basis-Abwanderungsrate
@@ -53,7 +53,7 @@
 ## Drei Signale, unabhängig geprüft
 *Jedes für sich gegen den gesamten Datensatz gerechnet*
 
-> Zwei Indikatoren tragen eine Kampagne, der dritte ist statistisch sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen.
+> Zwei Indikatoren tragen eine Kampagne. Der dritte ist sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen.
 
 
 ---
@@ -66,7 +66,7 @@
 * **954** — von 3.333 Kunden mit mindestens einem Signal
 * **28,6 %** — Anteil am Bestand
 * **60,9 %** — der Abwanderung in vier Stadtteilen
-> Beide Kampagnen haben damit eine konkrete Zielgruppe, ohne dass ein Vorhersagemodell nötig war. Die Sorgfalt steckt in der Datenprüfung, nicht in der Modellkomplexität.
+> Beide Kampagnen haben eine konkrete Zielgruppe, ohne Vorhersagemodell.
 
 
 ---
@@ -82,7 +82,7 @@
 
 ### Ende
 
-## Zwei Kampagnen, konkrete Adressaten
-*954 Kunden und vier Stadtteile, ohne Vorhersagemodell*
+## Telefonica Churn
+*Abwanderungsanalyse für einen Markteintritt in Florida<br>Data-Analysis-Projekt | StackFuel Capstone*
 
-> Eine gut geprüfte Exploration mit drei einfachen Schwellen beantwortet die Zielgruppen-Frage vollständig.
+> Sorgfalt schlägt Modellkomplexität

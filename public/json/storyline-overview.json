@@ -1,5 +1,12 @@
 {
   "meta": {
+    "project": "Telefonica Churn",
+    "period": "StackFuel Capstone",
+    "author": "Kay Wiegand",
+    "github": "kaywiegand/telefonica-churn",
+    "presentation_title": "Ergebnis & Empfehlungen",
+    "audience": "HR · Business · Stakeholder",
+    "duration_minutes": 5,
     "closing_links": [
       {
         "href": "../notebooks/",
@@ -18,7 +25,7 @@
           "title": "Telefonica Churn",
           "subtitle": [
             "Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen",
-            "Abwanderungsanalyse für einen Markteintritt in Florida"
+            "Abwanderungsanalyse für einen Markteintritt in Florida | StackFuel Capstone"
           ],
           "content": [
             {
@@ -157,7 +164,8 @@
             },
             {
               "type": "statement",
-              "text": "Zwei Indikatoren tragen eine Kampagne, der dritte ist statistisch sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen."
+              "layout": "wide",
+              "text": "Zwei Indikatoren tragen eine Kampagne. Der dritte ist sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen."
             }
           ]
         }
@@ -195,7 +203,8 @@
             },
             {
               "type": "statement",
-              "text": "Beide Kampagnen haben damit eine konkrete Zielgruppe, ohne dass ein Vorhersagemodell nötig war. Die Sorgfalt steckt in der Datenprüfung, nicht in der Modellkomplexität."
+              "layout": "wide",
+              "text": "Beide Kampagnen haben eine konkrete Zielgruppe, ohne Vorhersagemodell."
             }
           ]
         }
@@ -258,13 +267,27 @@
       "slides": [
         {
           "role": "closing",
-          "layout": "L6",
-          "title": "Zwei Kampagnen, konkrete Adressaten",
-          "subtitle": "954 Kunden und vier Stadtteile, ohne Vorhersagemodell",
+          "layout": "split",
+          "title": "Telefonica Churn",
+          "subtitle": "Abwanderungsanalyse für einen Markteintritt in Florida<br>Data-Analysis-Projekt | StackFuel Capstone",
+          "closing_primary_link": {
+            "label": "Notebooks durchsuchen",
+            "href": "../notebooks/",
+            "target": "_blank"
+          },
+          "closing_extra_links": [
+            {
+              "label": "LinkedIn-Profil",
+              "href": "https://www.linkedin.com/in/kaywiegand/",
+              "target": "_blank"
+            }
+          ],
           "content": [
             {
               "type": "statement",
-              "text": "Eine gut geprüfte Exploration mit drei einfachen Schwellen beantwortet die Zielgruppen-Frage vollständig."
+              "layout": "lead_copy",
+              "text": "Sorgfalt schlägt Modellkomplexität",
+              "copy": "Drei unabhängig geprüfte Indikatoren adressieren beide Kampagnen. Der Beitrag war nicht ein Modell, sondern die Prüfung der Datenbasis und die Einordnung, welcher Indikator trägt und welcher nicht."
             }
           ]
         }

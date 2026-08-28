@@ -1,12 +1,12 @@
-# Project
+# Telefonica Churn
 
-**Projekt:** N/A
-**Beschreibung:** N/A
-**Autor:** N/A
-**Zielgruppe:** N/A
-**Dauer:** N/A Minuten
-**Zeitraum:** N/A
-**GitHub:** [N/A](https://github.com/)
+**Projekt:** Telefonica Churn
+**Beschreibung:** Der komplette Projektverlauf
+**Autor:** Kay Wiegand
+**Zielgruppe:** Data Peers · Portfolio
+**Dauer:** 12 Minuten
+**Zeitraum:** StackFuel Capstone
+**GitHub:** [kaywiegand/telefonica-churn](https://github.com/kaywiegand/telefonica-churn)
 
 ---
 
@@ -18,7 +18,7 @@
 # Telefonica Churn
 
 **Telefonica Churn | Zielgruppen für zwei Kundenbindungs-Kampagnen**
-**Abwanderungsanalyse für einen Markteintritt in Florida**
+**Abwanderungsanalyse für einen Markteintritt in Florida | StackFuel Capstone**
 
 * **3.333** — Kunden (aus 3.349 Rohzeilen)
 * **14,49 %** — Basis-Abwanderungsrate
@@ -52,7 +52,7 @@
 ## Die Leitfrage
 *Zielgruppen bestimmen, nicht eine Quote senken*
 
-> Welche Spalten zeigen tatsächlich ein Abwanderungsrisiko an, und wo setzt man die Schwelle für eine Kontaktaufnahme. Der Auftrag nennt keine Zielquote, er fragt nach Adressaten.
+> Der Auftrag nennt keine Zielquote, er fragt nach Adressaten. Welche Spalten zeigen ein Risiko, und wo liegt die Kontaktschwelle.
 * **Plakatkampagne**
   - Zielgebiete sind Stadtteile, nicht einzelne Kunden.
   - Gesucht ist eine Rangfolge der zwölf Distrikte.
@@ -68,12 +68,12 @@
 ## Zwei Tabellen, ein Join
 *SQLite-Datenbank aus dem StackFuel-Abschlussprojekt*
 
-> Querschnittsaufnahme ohne Datumsspalte. Es gibt keinen Zeitverlauf, jede Aussage bezieht sich auf einen Stand.
+> Querschnittsaufnahme ohne Datumsspalte. Jede Aussage bezieht sich auf einen Stand, nicht auf einen Verlauf.
 
 ## Ein Zähler, der nicht negativ sein kann
 *Was die Prüfung der Rohdaten zutage gefördert hat*
 
-> Der negative Anrufzähler war in der ursprünglichen Musterlösung nicht aufgefallen. Er verschiebt genau den Indikator, auf dem später eine der drei Empfehlungen beruht.
+> Der negative Anrufzähler blieb in der Musterlösung unentdeckt. Er verschiebt genau den Indikator, auf dem eine der Empfehlungen beruht.
 
 
 ---
@@ -86,7 +86,7 @@
 * **14,49 %** — Abwanderungsrate als Vergleichsmaßstab
 * **1 Zeile** — je Kunde, keine Verlaufsdaten
 * **0** — Datumsspalten im Datensatz
-> Ohne Zeitachse lässt sich kein Verlauf modellieren. Die Frage nach Zielgruppen ist damit eine Frage nach Merkmalen, die im Bestand sichtbar sind, nicht nach einem Vorhersagemodell.
+> Ohne Zeitachse kein Verlauf. Die Zielgruppenfrage wird damit zur Frage nach Merkmalen im Bestand, nicht nach einem Vorhersagemodell.
 
 
 ---
@@ -124,7 +124,7 @@
 * **954** — von 3.333 Kunden mit mindestens einem Signal
 * **28,6 %** — Anteil am Bestand
 * **60,9 %** — der Abwanderung in vier Stadtteilen
-> Beide Kampagnen haben damit eine konkrete Zielgruppe, ohne dass ein Vorhersagemodell nötig war. Die Sorgfalt steckt in der Datenprüfung, nicht in der Modellkomplexität.
+> Beide Kampagnen haben eine konkrete Zielgruppe, ohne Vorhersagemodell.
 
 
 ---
@@ -149,7 +149,7 @@
 
 ### Ende
 
-## Sorgfalt statt Modellkomplexität
-*Was dieses Projekt zeigt*
+## Telefonica Churn
+*Abwanderungsanalyse für einen Markteintritt in Florida<br>Data-Analysis-Projekt | StackFuel Capstone*
 
-> Drei unabhängig geprüfte Indikatoren reichen aus, um beide Kampagnen zu adressieren. Der entscheidende Beitrag war nicht ein Modell, sondern die Prüfung der Datenbasis und die ehrliche Einordnung, welcher Indikator trägt und welcher nicht.
+> Sorgfalt schlägt Modellkomplexität
