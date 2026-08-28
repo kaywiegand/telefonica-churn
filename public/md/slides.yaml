@@ -230,7 +230,7 @@ chapters:
             rows:
               - cells: ["Internationaler Tarif", "42,4 % gegen 11,5 %", "323", "stark"]
                 highlight: true
-              - cells: ["Ab 4 Service-Anrufen", "45,8 % gegen rund 10 %", "696", "stark"]
+              - cells: ["Ab 4 Service-Anrufen", "45,8 % gegen 10 bis 13,5 %", "696", "stark"]
                 highlight: true
               - cells: ["Tagesminuten über 350,74", "50 % rechnerisch", "4", "nur ergänzend"]
                 highlight: false
@@ -275,7 +275,7 @@ chapters:
             items:
               - source: "customer_service_calls_churn.png"
                 label: "Abwanderung nach Service-Anrufen"
-                caption: "Bis zum dritten Anruf rund 10 %, beim vierten 45,8 %.<br><br>Kontaktschwelle deshalb bei drei Anrufen, vor dem Knick. Betrifft 696 Kunden."
+                caption: "Bis zum dritten Anruf zwischen 10,2 und 13,5 %, beim vierten 45,8 %.<br><br>Kontaktschwelle deshalb bei drei Anrufen, vor dem Knick. Betrifft 696 Kunden."
 
       - id: analyse-logreg
         views: [storyview]
