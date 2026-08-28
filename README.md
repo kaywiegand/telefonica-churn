@@ -116,6 +116,47 @@ Combined, the three individual-contact indicators reach 954 of 3,333 customers (
 
 ---
 
+## Project Structure
+
+```
+telefonica-churn/
+├── notebooks/                  numbered, read in order
+│   ├── 00_introduction.ipynb   scenario, data dictionary, business question
+│   ├── 01_exploration.ipynb    SQL load, EDA, plausibility checks
+│   ├── 02_preparation.ipynb    cleaning, dtype optimization, export
+│   ├── 03_analysis.ipynb       city ranking + the three indicators
+│   └── 04_insights.ipynb       executive summary, recommendations
+│
+├── public/                     web root, deployed to GitHub Pages
+│   ├── index.html              hub, generated
+│   ├── overview.html           the three views, generated
+│   ├── storyview.html
+│   ├── techview.html
+│   ├── img/                    exported charts
+│   ├── md/
+│   │   ├── slides.yaml         single source of truth for all views
+│   │   └── portfolio.md        curated facts, findings, recommendations
+│   └── archive/vN/             previous state, kept on every rebuild
+│
+├── src/telefonica_churn/       importable package
+├── tests/
+├── data/                       not in git, see .gitignore
+│   ├── raw/                    telco_churn.db
+│   └── processed/              telco_churn_clean.csv
+│
+├── README.md                   this file
+├── CLAUDE.md                   project identity and conventions
+├── PROCESS_LOG.md              history and decisions
+├── ROADMAP.md                  phases
+├── BACKLOG.md                  open tasks
+└── pyproject.toml
+```
+
+Never edit the generated files in `public/` directly. Change `public/md/slides.yaml`
+and rebuild — the previous state is archived automatically.
+
+---
+
 ## Setup
 
 ```bash
