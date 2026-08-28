@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Stack](https://img.shields.io/badge/Stack-pandas%20·%20statsmodels-orange)
 ![Type](https://img.shields.io/badge/Type-Data%20Analysis-lightgrey)
-![Status](https://img.shields.io/badge/Status-Phase%203%20complete-brightgreen)
+![Status](https://img.shields.io/badge/Status-Phase%204%20complete-brightgreen)
 
 ---
 
@@ -29,9 +29,11 @@
 
 | You are a… | Start here |
 | :--- | :--- |
-| Recruiter (30s) | This README — TL;DR + Results |
-| Analyst (10 min) | [`00_introduction.ipynb`](notebooks/00_introduction.ipynb) → [`03_analysis.ipynb`](notebooks/03_analysis.ipynb) |
-| Looking for recommendations | [`04_insights.ipynb`](notebooks/04_insights.ipynb) |
+| New here / quick overview | [Hub](public/index.html) — key figures + navigation to all views |
+| Recruiter (30s) | [Overview](public/overview.html) — results and recommendations, no methodology |
+| Analyst (10 min) | [StoryView](public/storyview.html) — the full path from raw data to campaign targets |
+| Technically interested | [TechView](public/techview.html) — cleaning, indicator types, regression, limitations |
+| Want the code | [`00_introduction.ipynb`](notebooks/00_introduction.ipynb) → [`03_analysis.ipynb`](notebooks/03_analysis.ipynb) → [`04_insights.ipynb`](notebooks/04_insights.ipynb) |
 
 ---
 
@@ -130,9 +132,15 @@ Open `notebooks/00_introduction.ipynb` and read in order. Raw data (`telco_churn
 
 | Artifact | Path | Content |
 | :--- | :--- | :--- |
+| Hub | [`public/index.html`](public/index.html) | Key figures, project summary, navigation to the three views |
+| Overview | [`public/overview.html`](public/overview.html) | 7 slides — results and recommendations, no methodology |
+| StoryView | [`public/storyview.html`](public/storyview.html) | 15 slides — the complete project narrative |
+| TechView | [`public/techview.html`](public/techview.html) | 9 slides — cleaning, indicator types, regression, limitations |
 | Charts | [`public/img/`](public/img/) | City ranking, international plan, customer service calls, logistic regression |
+| Slide registry | [`public/md/slides.yaml`](public/md/slides.yaml) | Single source of truth for all three views |
 
-> Portfolio hub (`public/index.html`) is scaffolded but not yet populated — pending `/project-case`.
+All three views are generated from `public/md/slides.yaml` via `make portfolio`. Never edit the
+generated `public/*.html` directly — the previous state is archived under `public/archive/`.
 
 ---
 
