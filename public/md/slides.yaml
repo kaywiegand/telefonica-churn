@@ -433,7 +433,7 @@ chapters:
         title: "Telefonica Churn"
         subtitle: "Abwanderungsanalyse für einen Markteintritt in Florida<br>Data-Analysis-Projekt | StackFuel Capstone"
         closing_primary_link:
-          {label: "Notebooks durchsuchen", href: "../notebooks/", target: "_blank"}
+          {label: "Notebooks durchsuchen", href: "https://github.com/kaywiegand/telefonica-churn/tree/main/notebooks", target: "_blank"}
         closing_extra_links:
           - {label: "LinkedIn-Profil", href: "https://www.linkedin.com/in/kaywiegand/", target: "_blank"}
         content:
@@ -485,7 +485,7 @@ hub:
     - label: "Ergebnis & Grenzen"
       text: "954 von 3.333 Kunden lösen mindestens ein Risikosignal aus, vier von zwölf Stadtteilen tragen 60,9 % der Abwanderung. Bewusst ohne Vorhersagemodell und ohne Train/Test-Split — die Schwelle bei 350,74 Minuten ist sauber hergeleitet, trifft allein aber nur vier Kunden und taugt nur als Zusatzkriterium."
   quick_links:
-    - {href: "../notebooks/", label: "Notebooks"}
+    - {href: "https://github.com/kaywiegand/telefonica-churn/tree/main/notebooks", label: "Notebooks"}
   view_order: [overview, techview, storyview]
   # Kartentexte kommen aus DEFAULT_VIEW_CARDS im Skill. Hier nur Abweichungen.
   view_cards:
