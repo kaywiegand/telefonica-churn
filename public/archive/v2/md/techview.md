@@ -36,19 +36,6 @@
 
 ---
 
-### Problem
-
-## Markteintritt mit subventioniertem ersten Jahr
-*Teleconfia testet den US-Markt mit Florida als Pilotregion*
-
-> Nicht alle Neukunden sind geblieben
-* **14,49 %** — Abwanderung über alle Kunden
-* **3.333** — Kunden im Datensatz
-* **12** — Stadtteile in Florida
-
-
----
-
 ### Daten
 
 ## Zwei Tabellen, ein Join
@@ -64,32 +51,7 @@
 
 ---
 
-### Exploration
-
-## Die Ausgangslage
-*Was der Datensatz hergibt und was nicht*
-
-* **14,49 %** — Abwanderungsrate als Vergleichsmaßstab
-* **1 Zeile** — je Kunde, keine Verlaufsdaten
-* **0** — Datumsspalten im Datensatz
-> Ohne Zeitachse kein Verlauf. Die Zielgruppenfrage wird damit zur Frage nach Merkmalen im Bestand, nicht nach einem Vorhersagemodell.
-
-
----
-
 ### Analyse
-
-## Der internationale Tarif
-*Das stärkste kategoriale Signal*
-
-
-## Der vierte Anruf
-*Ein klarer Knick statt eines gleichmäßigen Anstiegs*
-
-
-## Eine Schwelle statt einer Faustregel
-*Logistische Regression auf den Tagesminuten*
-
 
 ## Drei Datentypen, drei Auswertungswege
 *Warum nicht jede Spalte gleich behandelt wird*

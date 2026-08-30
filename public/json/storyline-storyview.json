@@ -52,11 +52,6 @@
                   "sentiment": "positive"
                 }
               ]
-            },
-            {
-              "type": "view_teaser",
-              "label": "Detailed Description",
-              "description": "Der gesamte Weg von den Rohdaten über die drei Indikatoren bis zu den Kampagnen-Zielgruppen. Portfolio-Vollansicht."
             }
           ]
         },
@@ -290,6 +285,57 @@
       "nav_label": "Analyse",
       "nav_tick_label": "Analyse",
       "slides": [
+        {
+          "layout": "wide",
+          "kicker": "Indikatoren",
+          "title": "Drei Signale, unabhängig geprüft",
+          "subtitle": "Jedes für sich gegen den gesamten Datensatz gerechnet",
+          "content": [
+            {
+              "type": "comparison_table",
+              "columns": [
+                "Indikator",
+                "Abwanderung",
+                "Betroffene Kunden",
+                "Eignung"
+              ],
+              "rows": [
+                {
+                  "cells": [
+                    "Internationaler Tarif",
+                    "42,4 % gegen 11,5 %",
+                    "323",
+                    "stark"
+                  ],
+                  "highlight": true
+                },
+                {
+                  "cells": [
+                    "Ab 4 Service-Anrufen",
+                    "45,8 % gegen 10 bis 13,5 %",
+                    "696",
+                    "stark"
+                  ],
+                  "highlight": true
+                },
+                {
+                  "cells": [
+                    "Tagesminuten über 350,74",
+                    "50 % rechnerisch",
+                    "4",
+                    "nur ergänzend"
+                  ],
+                  "highlight": false
+                }
+              ]
+            },
+            {
+              "type": "statement",
+              "layout": "wide",
+              "text": "Zwei Indikatoren tragen eine Kampagne. Der dritte ist sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen."
+            }
+          ]
+        },
         {
           "kicker": "Analyse",
           "title": "Vier Stadtteile tragen die Mehrheit",

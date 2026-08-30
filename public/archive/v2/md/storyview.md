@@ -93,11 +93,6 @@
 
 ### Analyse
 
-## Drei Signale, unabhängig geprüft
-*Jedes für sich gegen den gesamten Datensatz gerechnet*
-
-> Zwei Indikatoren tragen eine Kampagne. Der dritte ist sauber hergeleitet und trifft trotzdem zu wenige Kunden, um allein zu stehen.
-
 ## Vier Stadtteile tragen die Mehrheit
 *Zielgebiete für die Plakatkampagne*
 

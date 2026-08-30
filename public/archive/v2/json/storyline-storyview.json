@@ -4,9 +4,9 @@
     "period": "StackFuel Capstone",
     "author": "Kay Wiegand",
     "github": "kaywiegand/telefonica-churn",
-    "presentation_title": "Technischer Deep Dive",
-    "audience": "Data Scientists · Tech Leads · Interviewer",
-    "duration_minutes": 8,
+    "presentation_title": "Der komplette Projektverlauf",
+    "audience": "Data Peers · Portfolio",
+    "duration_minutes": 12,
     "closing_links": [
       {
         "href": "../notebooks/",
@@ -32,31 +32,31 @@
               "type": "figures",
               "items": [
                 {
-                  "value": "37",
-                  "label": "Zeilen mit negativem Anrufzähler",
-                  "sentiment": "negative"
-                },
-                {
-                  "value": "350,74",
-                  "label": "Minuten, 50-Prozent-Schwelle",
+                  "value": "3.333",
+                  "label": "Kunden (aus 3.349 Rohzeilen)",
                   "sentiment": "neutral"
                 },
                 {
-                  "value": "0,052",
-                  "label": "Pseudo-R² der Regression",
+                  "value": "14,49 %",
+                  "label": "Basis-Abwanderungsrate",
                   "sentiment": "warning"
                 },
                 {
-                  "value": "5",
-                  "label": "nummerierte Notebooks, durchgehend reproduzierbar",
+                  "value": "3",
+                  "label": "unabhängig geprüfte Indikatoren",
                   "sentiment": "neutral"
+                },
+                {
+                  "value": "954",
+                  "label": "Kunden für gezielte Ansprache",
+                  "sentiment": "positive"
                 }
               ]
             },
             {
               "type": "view_teaser",
-              "label": "",
-              "description": "Technischer Deep-Dive für Data Scientists. Datenbereinigung, Indikatortypen, Schwellenwert-Herleitung und Aussagegrenzen im Detail."
+              "label": "Detailed Description",
+              "description": "Der gesamte Weg von den Rohdaten über die drei Indikatoren bis zu den Kampagnen-Zielgruppen. Portfolio-Vollansicht."
             }
           ]
         },
@@ -64,14 +64,17 @@
           "layout": "L6",
           "kicker": "Agenda",
           "title": "Inhaltsübersicht",
-          "subtitle": "Datenaufbereitung, Indikatortypen und Methodik",
+          "subtitle": "Der komplette Weg von den Rohdaten zu den Kampagnen-Zielgruppen",
           "content": [
             {
               "type": "agenda",
               "items": [
+                "Problem",
                 "Daten und Qualität",
-                "Indikatortypen",
-                "Methodik",
+                "Exploration",
+                "Analyse",
+                "Ergebnis",
+                "Empfehlungen",
                 "Grenzen"
               ]
             }
@@ -112,6 +115,40 @@
                   "value": "12",
                   "label": "Stadtteile in Florida",
                   "sentiment": "neutral"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "layout": "L6",
+          "kicker": "Problem",
+          "title": "Die Leitfrage",
+          "subtitle": "Zielgruppen bestimmen, nicht eine Quote senken",
+          "content": [
+            {
+              "type": "statement",
+              "layout": "wide",
+              "text": "Der Auftrag nennt keine Zielquote, er fragt nach Adressaten. Welche Spalten zeigen ein Risiko, und wo liegt die Kontaktschwelle."
+            },
+            {
+              "type": "sections",
+              "layout": "columns",
+              "numbered": true,
+              "items": [
+                {
+                  "label": "Plakatkampagne",
+                  "points": [
+                    "Zielgebiete sind Stadtteile, nicht einzelne Kunden.",
+                    "Gesucht ist eine Rangfolge der zwölf Distrikte."
+                  ]
+                },
+                {
+                  "label": "Persönliche Ansprache",
+                  "points": [
+                    "Zielgruppe sind einzelne Kunden mit erkennbarem Risiko.",
+                    "Gesucht sind Merkmale und eine Kontaktschwelle."
+                  ]
                 }
               ]
             }
@@ -255,6 +292,24 @@
       "slides": [
         {
           "kicker": "Analyse",
+          "title": "Vier Stadtteile tragen die Mehrheit",
+          "subtitle": "Zielgebiete für die Plakatkampagne",
+          "content": [
+            {
+              "type": "chart_refs",
+              "layout": "image_left",
+              "items": [
+                {
+                  "source": "city_churn_ranking.png",
+                  "label": "Stadtteile nach Abwanderung",
+                  "caption": "Vier von zwölf Stadtteilen tragen 60,9 Prozent aller Abwanderungen.<br><br>Jacksonville 29,82 %, Orlando1 23,67 %, Cape Coral 21,78 %, Orlando2 19,08 %. Das reicht als Zielgebiet für die Plakatkampagne."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kicker": "Analyse",
           "title": "Der internationale Tarif",
           "subtitle": "Das stärkste kategoriale Signal",
           "content": [
@@ -306,102 +361,94 @@
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "nav_label": "Ergebnis",
+      "nav_tick_label": "Ergebnis",
+      "slides": [
         {
-          "layout": "wide",
-          "kicker": "Indikatortypen",
-          "title": "Drei Datentypen, drei Auswertungswege",
-          "subtitle": "Warum nicht jede Spalte gleich behandelt wird",
+          "layout": "L6",
+          "kicker": "Ergebnis",
+          "title": "Knapp ein Drittel der Kunden ist adressierbar",
+          "subtitle": "Abdeckung der drei Indikatoren zusammen",
           "content": [
             {
-              "type": "comparison_table",
-              "columns": [
-                "Typ",
-                "Spalte",
-                "Verfahren",
-                "Ergebnis"
-              ],
-              "rows": [
+              "type": "figures",
+              "items": [
                 {
-                  "cells": [
-                    "kategorial",
-                    "international_plan",
-                    "Gruppenvergleich der Raten",
-                    "42,4 % gegen 11,5 %"
-                  ],
-                  "highlight": false
+                  "value": "954",
+                  "label": "von 3.333 Kunden mit mindestens einem Signal",
+                  "sentiment": "positive"
                 },
                 {
-                  "cells": [
-                    "ganzzahlig",
-                    "customer_service_calls",
-                    "Rate je Ausprägung, Knick suchen",
-                    "Sprung beim 4. Anruf"
-                  ],
-                  "highlight": false
+                  "value": "28,6 %",
+                  "label": "Anteil am Bestand",
+                  "sentiment": "positive"
                 },
                 {
-                  "cells": [
-                    "stetig",
-                    "total_day_minutes",
-                    "logistische Regression, 50-Prozent-Punkt",
-                    "350,74 Minuten"
-                  ],
-                  "highlight": true
+                  "value": "60,9 %",
+                  "label": "der Abwanderung in vier Stadtteilen",
+                  "sentiment": "positive"
                 }
               ]
             },
             {
               "type": "statement",
               "layout": "wide",
-              "text": "Eine stetige Größe hat keine natürlichen Gruppen. Eine Schwelle per Augenmaß wäre willkürlich, deshalb hier die Regression."
+              "text": "Beide Kampagnen haben eine konkrete Zielgruppe, ohne Vorhersagemodell."
             }
           ]
         }
       ]
     },
     {
-      "nav_label": "Methodik",
-      "nav_tick_label": "Methodik",
+      "nav_label": "Empfehlungen",
+      "nav_tick_label": "Empfehlungen",
       "slides": [
         {
-          "kicker": "Methodik",
-          "title": "Die Regression im Detail",
-          "subtitle": "statsmodels Logit auf total_day_minutes",
+          "layout": "wide",
+          "kicker": "Empfehlungen",
+          "title": "Vier Maßnahmen",
+          "subtitle": "Direkt aus den drei Indikatoren abgeleitet",
           "content": [
             {
-              "type": "chart_refs",
-              "layout": "image_left",
+              "type": "recommendations",
               "items": [
                 {
-                  "source": "logit_total_day_minutes.png",
-                  "label": "Regressionskurve mit Schwelle",
-                  "caption": "Ein Prädiktor, gerechnet auf dem vollen Datensatz.<br><br>50-Prozent-Punkt bei 350,74 Minuten. Pseudo-R² 0,052 heißt zugleich, dass die Tagesminuten den Großteil der Abwanderung nicht erklären."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "layout": "L6",
-          "kicker": "Methodik",
-          "title": "Bewusst ohne Train/Test-Split",
-          "subtitle": "Schwellenwert bestimmen statt generalisieren",
-          "content": [
-            {
-              "type": "contrasts",
-              "items": [
+                  "category": "1",
+                  "title": "Plakatkampagne in den vier stärksten Stadtteilen",
+                  "points": [
+                    "Jacksonville, Orlando1, Cape Coral und Orlando2.",
+                    "Zusammen 60,9 Prozent der gesamten Abwanderung."
+                  ]
+                },
                 {
-                  "topic": "Ziel der Regression",
-                  "assumption": "Ein Modell, das Abwanderung bei unbekannten Kunden vorhersagt und dafür auf einem Testset bewertet wird.",
-                  "finding": "Eine belegbare Schwelle für die Kontaktliste, gerechnet auf dem vorhandenen Bestand."
+                  "category": "2",
+                  "title": "Persönliche Ansprache bei internationalem Tarif",
+                  "points": [
+                    "323 Kunden bei 42,4 Prozent Abwanderung.",
+                    "Bessere Konditionen für Auslandsgespräche anbieten, bevor sie kündigen."
+                  ]
+                },
+                {
+                  "category": "3",
+                  "title": "Frühwarnung ab dem dritten Service-Anruf",
+                  "points": [
+                    "696 Kunden betroffen.",
+                    "Beim vierten Anruf springt die Rate auf 45,8 Prozent, der Kontakt beim dritten schafft Vorlauf."
+                  ]
+                },
+                {
+                  "category": "4",
+                  "title": "Tagesminuten nur als zusätzliches Kriterium",
+                  "points": [
+                    "Die Schwelle von 350,74 Minuten ist sauber hergeleitet.",
+                    "Sie trifft allein aber nur vier Kunden, deshalb mit den beiden anderen kombinieren."
+                  ]
                 }
               ]
-            },
-            {
-              "type": "statement",
-              "layout": "wide",
-              "text": "Ein Split würde die Datenbasis nur verkleinern, ohne die Aussage zu verbessern. Geprüft wird stattdessen die Datenqualität und wie viele Kunden ein Indikator trifft."
             }
           ]
         }

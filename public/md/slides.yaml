@@ -110,7 +110,7 @@ chapters:
     nav_label: Problem
     slides:
       - id: problem-szenario
-        views: [overview, storyview]
+        views: [overview, storyview, techview]
         layout: L6
         kicker: "Problem"
         title: "Markteintritt mit subventioniertem ersten Jahr"
@@ -199,7 +199,7 @@ chapters:
     nav_label: Exploration
     slides:
       - id: exploration-basis
-        views: [storyview]
+        views: [storyview, techview]
         layout: L6
         kicker: "Exploration"
         title: "Die Ausgangslage"
@@ -219,7 +219,7 @@ chapters:
     nav_label: Analyse
     slides:
       - id: analyse-uebersicht
-        views: [overview]
+        views: [overview, storyview]
         layout: wide
         kicker: "Indikatoren"
         title: "Drei Signale, unabhängig geprüft"
@@ -252,7 +252,7 @@ chapters:
                 caption: "Vier von zwölf Stadtteilen tragen 60,9 Prozent aller Abwanderungen.<br><br>Jacksonville 29,82 %, Orlando1 23,67 %, Cape Coral 21,78 %, Orlando2 19,08 %. Das reicht als Zielgebiet für die Plakatkampagne."
 
       - id: analyse-international
-        views: [storyview]
+        views: [storyview, techview]
         kicker: "Analyse"
         title: "Der internationale Tarif"
         subtitle: "Das stärkste kategoriale Signal"
@@ -265,7 +265,7 @@ chapters:
                 caption: "42,4 % gegen 11,5 %, knapp das Vierfache.<br><br>Betrifft 323 Kunden. Klein genug, um sie einzeln anzusprechen."
 
       - id: analyse-servicecalls
-        views: [storyview]
+        views: [storyview, techview]
         kicker: "Analyse"
         title: "Der vierte Anruf"
         subtitle: "Ein klarer Knick statt eines gleichmäßigen Anstiegs"
@@ -278,7 +278,7 @@ chapters:
                 caption: "Bis zum dritten Anruf zwischen 10,2 und 13,5 %, beim vierten 45,8 %.<br><br>Kontaktschwelle deshalb bei drei Anrufen, vor dem Knick. Betrifft 696 Kunden."
 
       - id: analyse-logreg
-        views: [storyview]
+        views: [storyview, techview]
         kicker: "Analyse"
         title: "Eine Schwelle statt einer Faustregel"
         subtitle: "Logistische Regression auf den Tagesminuten"
@@ -487,25 +487,10 @@ hub:
   quick_links:
     - {href: "../notebooks/", label: "Notebooks"}
   view_order: [overview, techview, storyview]
+  # Kartentexte kommen aus DEFAULT_VIEW_CARDS im Skill. Hier nur Abweichungen.
   view_cards:
-    overview:
-      kicker: "Overview"
-      label: "Basic Information"
-      description: "Ergebnis und Handlungsempfehlungen für Stakeholder. Die kürzeste Fassung, ohne Methodik."
-      badge: "HR · Business"
-      badge_class: blue
     techview:
-      kicker: "Tech View"
-      label: "Technical Insights"
-      description: "Datenbereinigung, Indikatortypen, Schwellenwert-Herleitung und Aussagegrenzen. Ohne Business-Empfehlungen."
-      badge: "Data Science"
-      badge_class: dark
-    storyview:
-      kicker: "Story View"
-      label: "Detailed Description"
-      description: "Der gesamte Weg von den Rohdaten über die drei Indikatoren bis zu den Kampagnen-Zielgruppen. Portfolio-Vollansicht."
-      badge: "Portfolio"
-      badge_class: purple
+      description: "Technischer Deep-Dive für Data Scientists. Datenbereinigung, Indikatortypen, Schwellenwert-Herleitung und Aussagegrenzen im Detail."
 
 view_composition:
   overview:
@@ -527,9 +512,13 @@ view_composition:
     - grenzen
     - ende
 
+  # TechView folgt dem Bauweg (Portfolio-Standard, siehe project-case.md):
+  # Ausgangssituation -> Daten -> Exploration -> Analyse -> Methodik -> Grenzen
   techview:
     - einstieg
+    - problem
     - daten
+    - exploration
     - analyse
     - methodik
     - grenzen

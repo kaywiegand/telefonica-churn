@@ -10,16 +10,16 @@ Automatisch generiert aus `public/md/slides.yaml` via `scripts/print_slide_matri
 | `einstieg-agenda-overview` | Einstieg | Agenda |  |  | ✅ |
 | `einstieg-agenda-storyview` | Einstieg | Agenda | ✅ |  |  |
 | `einstieg-agenda-techview` | Einstieg | Agenda |  | ✅ |  |
-| `problem-szenario` | Problem | Statement + KPIs | ✅ |  | ✅ |
+| `problem-szenario` | Problem | Statement + KPIs | ✅ | ✅ | ✅ |
 | `problem-auftrag` | Problem | Statement + Abschnitte | ✅ |  |  |
 | `daten-quelle` | Daten | Vergleichstabelle + Statement | ✅ | ✅ |  |
 | `daten-qualitaet` | Daten | box_grid + Statement | ✅ | ✅ |  |
-| `exploration-basis` | Exploration | KPIs + Statement | ✅ |  |  |
-| `analyse-uebersicht` | Analyse | Vergleichstabelle + Statement |  |  | ✅ |
+| `exploration-basis` | Exploration | KPIs + Statement | ✅ | ✅ |  |
+| `analyse-uebersicht` | Analyse | Vergleichstabelle + Statement | ✅ |  | ✅ |
 | `analyse-staedte` | Analyse | Chart | ✅ |  |  |
-| `analyse-international` | Analyse | Chart | ✅ |  |  |
-| `analyse-servicecalls` | Analyse | Chart | ✅ |  |  |
-| `analyse-logreg` | Analyse | Chart | ✅ |  |  |
+| `analyse-international` | Analyse | Chart | ✅ | ✅ |  |
+| `analyse-servicecalls` | Analyse | Chart | ✅ | ✅ |  |
+| `analyse-logreg` | Analyse | Chart | ✅ | ✅ |  |
 | `analyse-typen` | Analyse | Vergleichstabelle + Statement |  | ✅ |  |
 | `methodik-logreg` | Methodik | Chart |  | ✅ |  |
 | `methodik-kein-split` | Methodik | Annahme/Befund + Statement |  | ✅ |  |
@@ -28,4 +28,4 @@ Automatisch generiert aus `public/md/slides.yaml` via `scripts/print_slide_matri
 | `grenzen-alle` | Grenzen | box_grid | ✅ | ✅ |  |
 | `ende-closing` | Ende | Statement | ✅ | ✅ | ✅ |
 
-**23 Slide-Einträge total · 7 davon in mehr als 1 View wiederverwendet.**
+**23 Slide-Einträge total · 12 davon in mehr als 1 View wiederverwendet.**

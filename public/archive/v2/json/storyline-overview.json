@@ -47,6 +47,11 @@
                   "sentiment": "positive"
                 }
               ]
+            },
+            {
+              "type": "view_teaser",
+              "label": "Basic Information",
+              "description": "Ergebnis und Handlungsempfehlungen für Stakeholder. Die kürzeste Fassung, ohne Methodik."
             }
           ]
         },
